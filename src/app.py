@@ -1,28 +1,18 @@
 import os
 
-import sqlalchemy as sa
-
 from flask import Flask
-from sqlalchemy.orm import Mapped, mapped_column, relationship
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
 
-from src.models.base import db
-from src.models.post import Post
-from src.models.role import Role
+# from src.models.base import db
+# from src.models.post import Post
+# from src.models.role import Role
+# from src.models.user import User
+
+from src.models import db, Post, Role, User
 
 migrate = Migrate()
 jwt = JWTManager()
-
-class User(db.Model):
-    id: Mapped[int] = mapped_column(sa.Integer, primary_key=True)
-    username: Mapped[str] = mapped_column(sa.String, unique=True, nullable=False)
-    password: Mapped[str] = mapped_column(sa.String, nullable=False)
-    role_id: Mapped[int] = mapped_column(sa.ForeignKey('role.id'))
-    role: Mapped['Role'] = relationship(back_populates='user') 
-
-    def __repr__(self) -> str:
-        return f"User(id={self.id!r}, username={self.username!r})"
 
 
 def create_app(test_config=None):
