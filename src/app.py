@@ -4,11 +4,6 @@ from flask import Flask
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
 
-# from src.models.base import db
-# from src.models.post import Post
-# from src.models.role import Role
-# from src.models.user import User
-
 from src.models import db, Post, Role, User
 
 migrate = Migrate()
