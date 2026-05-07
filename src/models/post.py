@@ -1,8 +1,8 @@
 from datetime import datetime
 
-import sqlalchemy as sa
+import sqlalchemy as sa # type: ignore
 from src.models.base import db
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column # type: ignore
 
 class Post(db.Model):
     id: Mapped[int] = mapped_column(sa.Integer, primary_key=True)

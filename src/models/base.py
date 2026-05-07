@@ -1,5 +1,5 @@
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import DeclarativeBase
+from flask_sqlalchemy import SQLAlchemy # type: ignore
+from sqlalchemy.orm import DeclarativeBase # type: ignore
 
 class Base(DeclarativeBase):
   pass
