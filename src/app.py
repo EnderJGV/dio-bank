@@ -3,16 +3,13 @@ import os
 import click
 import sqlalchemy as sa
 from datetime import datetime
+
 from flask import Flask, current_app
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
+from src.models.base import db
 
-class Base(DeclarativeBase):
-  pass
-
-db = SQLAlchemy(model_class=Base)
 migrate = Migrate()
 jwt = JWTManager()
 
