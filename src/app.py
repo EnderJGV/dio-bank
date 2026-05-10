@@ -9,7 +9,8 @@ from src.models import db, Post, Role, User
 
 migrate = Migrate()
 jwt = JWTManager()
-bcrypt = Bcrypt(app)
+
+bcrypt = Bcrypt()
 
 def create_app(environment=os.environ["ENVIRONMENT"]):
     # create and configure the app
@@ -25,6 +26,7 @@ def create_app(environment=os.environ["ENVIRONMENT"]):
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
+    bcrypt.init_app(app)
 
     # Register BluePrint
     from src.controllers import user, post, auth, role

@@ -2,10 +2,16 @@ from flask import Blueprint, request
 from src.app import User, db
 from http import HTTPStatus
 from flask_jwt_extended import create_access_token
+from src.app import bcrypt
+from src.models import User, db
 
 app = Blueprint('auth', __name__, url_prefix='/auth')
 
 @app.route("/login", methods=["POST"])
+
+# def _valid_password(password_hash, password_raw):
+#     return bcrypt.check_password_hash(password_hash, password_raw)
+
 def login():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
